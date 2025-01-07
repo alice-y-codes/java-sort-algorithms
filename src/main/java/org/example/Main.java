@@ -4,10 +4,27 @@ public class Main {
     public static void main(String[] args) {
         int[] intArray = {20, 35, -15, 7, 55, 1, -22};
 
-//        var sorted = selectionSort(intArray);
+//        var sorted = insertionSort(intArray);
 //        for (int j : sorted) {
 //            System.out.println(j);
 //        }
+    }
+
+    public static int[] insertionSort(int[] intArray) {
+        for (int firstUnsortedIndex = 1; firstUnsortedIndex < intArray.length; firstUnsortedIndex++) {
+            int newElement = intArray[firstUnsortedIndex];
+
+            int i;
+
+            for (i = firstUnsortedIndex; i > 0 && intArray[i-1] > newElement; i--) {
+                intArray[i] = intArray[i-1];
+            }
+
+            intArray[i] = newElement;
+        };
+
+
+        return intArray;
     }
 
     public static int[] selectionSort(int[] intArray) {
@@ -33,10 +50,6 @@ public class Main {
                     swap(intArray, i, i + 1);
                 }
             }
-        }
-
-        for (int j : intArray) {
-            System.out.println(j);
         }
 
         return intArray;
